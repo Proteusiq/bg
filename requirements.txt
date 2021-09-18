@@ -1,0 +1,6 @@
+celery
+redis
+python-decouple
+pandas
+fastparquet
+scikit-learn==0.24.2

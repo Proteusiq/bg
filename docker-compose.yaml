@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+    worker:
+        container_name: worker
+        build: .
+        command: ["celery", "--app",  "tasks", "worker", "--concurrency", "10"]
+        volumes: 
+            - ./data:/usr/worker/data
+            - ./models:/usr/worker/models
+        env_file: 
+            - ./.env
+        depends_on:
+            - redis
+
+    redis:
+        container_name: redis
+        image: redis:latest
+        ports:
+            - 6379:6379
+        restart: always
+
+   

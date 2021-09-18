@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+    worker:
+        container_name: worker
+        build: .
+        command: ["celery", "--app",  "tasks", "worker", "--concurrency", "10"]
+        volumes: 
+            - ./data/worker:/usr/worker/data
+        env_file: 
+            - ./.env
+        depends_on:
+            - redis
+            - minio
+
+    redis:
+        container_name: redis
+        image: redis:latest
+        ports:
+            - 6379:6379
+        restart: always
+
+    minio:
+        container_name: minio
+        image: minio/minio:latest
+        ports:
+            - 9000:9000
+            - 9001:9001
+        command: server /data --console-address ":9001"
+        env_file: 
+            - ./.env
+        volumes: 
+            - ./data/buckets:/data
+
+   

@@ -1,0 +1,8 @@
+celery
+redis
+minio
+boto3
+python-decouple
+pandas
+fastparquet
+s3fs
