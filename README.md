@@ -1,7 +1,7 @@
 Lazy Data Scientist
 > send heavy jobs to the background
 
-Waiting for a Jupyter Lab cell to finish computing is ...! Let just send the task to the background.
+Waiting for a Jupyter Lab cell to finish computing is ...! Let's just send the task to the background.
 
 # Disclaimer
 Everything you see was done in 3 hour. Quality is not the case. The idea behind is.
